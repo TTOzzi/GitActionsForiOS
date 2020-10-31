@@ -22,9 +22,12 @@ jobs:
       - name: Test
         run: |
           xcodebuild test -project "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
+      - uses: codecov/codecov-action@v1.0.14
+        with:
+          token: 19b182b3-bd34-42f4-9aa5-5deb1b80c414
       - name: If fail
         uses: peter-evans/create-or-update-comment@v1.4.3
         with:
-          body: |
-            테스트가 실패하였습니다.
+          comment: 'This PR is the bees knees!'
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         if: failure()
