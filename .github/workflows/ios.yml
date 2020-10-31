@@ -21,4 +21,4 @@ jobs:
         uses: actions/checkout@v2
       - name: Test
         run: |
-          xcodebuild test -projec "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
+          xcodebuild test -project "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
