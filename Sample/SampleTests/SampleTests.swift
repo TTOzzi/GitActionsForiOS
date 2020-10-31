@@ -10,6 +10,6 @@ import XCTest
 final class SampleTests: XCTestCase {
     
     func testSample() {
-        XCTAssertTrue(1 - 1 == 2)
+        XCTAssertTrue(false)
     }
 }
