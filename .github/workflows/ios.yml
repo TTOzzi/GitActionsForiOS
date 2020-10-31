@@ -31,7 +31,7 @@ jobs:
             const pull_number = Number(ref.split("/")[2])
             await github.issues.createComment({
               ...context.repo,
-              issye_number: pull_number,
+              issue_number: pull_number,
               body: "테스트가 실패하였습니다."
               })
         if: failure()
