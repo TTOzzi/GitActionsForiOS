@@ -25,7 +25,7 @@ jobs:
       - name: If fail
         uses: actions/github-script@0.2.0
         with:
-          token: ${{github.token}}
+          github-token: ${{github.token}}
           script: |
             const ref = "${{github.ref}}"
             const pull_number = Number(ref.split("/")[2])
