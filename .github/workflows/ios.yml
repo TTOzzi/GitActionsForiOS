@@ -23,16 +23,14 @@ jobs:
         run: |
           xcodebuild test -project "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
       - name: If fail
-        uses: actions/github-script@0.2.0
+        uses: actions/github-script@0.3.0
         with:
-          github-token: ${{github.token}}
           script: |
             const ref = "${{github.ref}}"
             const pull_number = Number(ref.split("/")[2])
-            await github.pulls.createReview({
+            await github.pulls.createComment({
               ...context.repo,
               pull_number,
-              body: "테스트가 실패하였습니다.",
-              event: "REQUEST_CHANGES"
+              body: "테스트가 실패하였습니다."
               })
         if: failure()
