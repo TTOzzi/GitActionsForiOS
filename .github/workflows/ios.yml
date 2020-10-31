@@ -10,10 +10,15 @@ jobs:
   build:
     name: Build and Test default scheme using any available iPhone simulator
     runs-on: macos-latest
-
+    env:
+      project: ${{ 'Sample/Sample.xcodeproj' }}
+      scheme: ${{ 'SampleTests' }}
+      platform: ${{ 'iOS Simulator' }}
+      simulator: ${{ 'iPhone 12 mini' }}
+      os: ${{ '14.0' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
         run: |
-          xcodebuild test -projec Sample/Sample.xcodeproj -scheme SampleTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 12 mini,OS=14.0"
+          xcodebuild test -projec "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
