@@ -19,4 +19,4 @@ jobs:
           scheme: ${{ 'Sample' }}
           platform: ${{ 'iOS Simulator' }}
         run: |
-          xcodebuild clean test -project Sample.xcodeproj
+          xcodebuild test -project Sample.xcodeproj -scheme SampleTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 12 mini,OS=14.0"
