@@ -23,7 +23,7 @@ jobs:
         run: |
           xcodebuild test -project "$project" -scheme "$scheme" -sdk iphonesimulator -destination "platform=$platform,name=$simulator,OS=$os"
       - name: If fail
-        uses: peter-evans/commit-comment@v1
+        uses: peter-evans/create-or-update-comment@v1.4.3
         with:
           body: |
             테스트가 실패하였습니다.
