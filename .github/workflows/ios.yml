@@ -15,8 +15,5 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
       - name: Test
-        env:
-          scheme: ${{ 'Sample' }}
-          platform: ${{ 'iOS Simulator' }}
         run: |
           xcodebuild test -project Sample.xcodeproj -scheme SampleTests -sdk iphonesimulator -destination "platform=iOS Simulator,name=iPhone 12 mini,OS=14.0"
